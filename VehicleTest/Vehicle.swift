@@ -65,8 +65,7 @@ class Vehicle {
                 }
                 
                 lng = Double(holdingString!)
-                
-                //let morePrecisePI = Double("3.1415926536")
+
                 
             }
   
@@ -149,9 +148,6 @@ class Vehicle {
     //maps class members to json
     //func vehicleToJsonObject() -> String {
     func vehicleToJsonObject() -> [String : AnyObject] {
-        
-       // var jsonString = ""
-        
 
         var jsonObject = [String : AnyObject]()
         var jsonObject2 = [String : AnyObject]()
@@ -163,20 +159,7 @@ class Vehicle {
         jsonObject2[JsonDocTags.VEHICLE_GROUP_TAG] = groups as AnyObject?
         
         jsonObject[String(vehicleId)] = jsonObject2 as AnyObject?
-//        let jsonHelper = JsonHelper()
- //
-//        do {
-//            
-//            jsonString = try jsonHelper.buildJSON(jsonObject as AnyObject)
-//            
-//        } catch let error {
-//            
-//            print(" error!!!!")
-//            print(error.localizedDescription)
-//            
-//        }
-    
-        //return jsonString
+
         return jsonObject
         
     }

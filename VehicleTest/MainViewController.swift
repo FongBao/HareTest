@@ -15,35 +15,60 @@ class MainViewController: UIViewController {
     
     let jsonHelper = JsonHelper()
     let vehiclesDataHandler = VehiclesData.sharedInstance
+    let operationQueue = OperationQueue()
     
-
     @IBOutlet weak var mainTextView: UITextView!
     
     
     @IBAction func parseJsonFile(_ sender: UIButton) {
         
+        operationQueue.maxConcurrentOperationCount = 1
         
-        do {
+        let serialQueue = DispatchQueue(label: "json")
+        
+        
+        
+     
+            
+//        }
+//        
+        operationQueue.addOperation {
 
+        
             
-            try jsonHelper.parseJson(jsonString: vehiclesString, vehiclesData : vehiclesDataHandler)
-            try jsonHelper.parseJson(jsonString: vehiclesGroupsString, vehiclesData : vehiclesDataHandler)
+//               serialQueue.async {
             
+        do {
+            try self.jsonHelper.parseJson(jsonString: self.vehiclesString, vehiclesData : self.vehiclesDataHandler)
             
         } catch let error {
-            
-            
-            print(" error!!!!")
             print(error.localizedDescription)
-            
+            }
         }
         
-
+       // serialQueue.async {
+        operationQueue.addOperation {
+        
+        do {
+            try self.jsonHelper.parseJson(jsonString: self.vehiclesGroupsString, vehiclesData : self.vehiclesDataHandler)
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+    }
+        
+        
+    //serialQueue.async {
+        operationQueue.addOperation {
         //set to main screen to view
-        mainTextView.text = jsonHelper.createJsonString()
+        let completeJsonString = self.jsonHelper.createJsonString()
         
-  
+        DispatchQueue.main.async {
+            self.mainTextView.text = completeJsonString
+        }
         
+        
+        }
         
     }
     
@@ -56,6 +81,8 @@ class MainViewController: UIViewController {
         vehiclesString = retrieveJsonStringFromBundle(filePath: Bundle.main.path(forResource: "vehicles", ofType:"json"))
         vehiclesGroupsString = retrieveJsonStringFromBundle(filePath: Bundle.main.path(forResource: "vehicle_groups", ofType:"json"))
 
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -13,9 +13,6 @@ import Foundation
 protocol VehiclesDataProtocol {
     
     
-    
-    //var mVehicles : Set<Vehicle> { get }
-    
     var vehiclesDict : [Int : Vehicle] { get set }
     
     
