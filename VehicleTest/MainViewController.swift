@@ -12,31 +12,18 @@ class MainViewController: UIViewController {
     
     var vehiclesString : String = ""
     var vehiclesGroupsString : String = ""
-    
     let jsonHelper = JsonHelper()
     let vehiclesDataHandler = VehiclesData.sharedInstance
-    let operationQueue = OperationQueue()
     
     @IBOutlet weak var mainTextView: UITextView!
     
     
     @IBAction func parseJsonFile(_ sender: UIButton) {
         
-        operationQueue.maxConcurrentOperationCount = 1
+        let serialQueue = DispatchQueue(label: "jsonQueue")
         
-        let serialQueue = DispatchQueue(label: "json")
-        
-        
-        
-     
-            
-//        }
-//        
-        operationQueue.addOperation {
-
-        
-            
-//               serialQueue.async {
+    
+        serialQueue.async {
             
         do {
             try self.jsonHelper.parseJson(jsonString: self.vehiclesString, vehiclesData : self.vehiclesDataHandler)
@@ -46,8 +33,8 @@ class MainViewController: UIViewController {
             }
         }
         
-       // serialQueue.async {
-        operationQueue.addOperation {
+       serialQueue.async {
+
         
         do {
             try self.jsonHelper.parseJson(jsonString: self.vehiclesGroupsString, vehiclesData : self.vehiclesDataHandler)
@@ -58,11 +45,11 @@ class MainViewController: UIViewController {
     }
         
         
-    //serialQueue.async {
-        operationQueue.addOperation {
-        //set to main screen to view
+    serialQueue.async {
+    
         let completeJsonString = self.jsonHelper.createJsonString()
         
+        //set to main screen to view
         DispatchQueue.main.async {
             self.mainTextView.text = completeJsonString
         }
@@ -108,14 +95,9 @@ class MainViewController: UIViewController {
             return ""
             
         }
-
-        
         
     
     }
-    
-
-    
     
 
    
