@@ -2,7 +2,6 @@
 //  Vehicle.swift
 //  VehicleTest
 //
-//  Created by TAE on 10/02/2017.
 //  Copyright © 2017 OriginalMyth. All rights reserved.
 //
 
@@ -12,23 +11,13 @@ import Foundation
 class Vehicle : Hashable {
     
     
-    var vehicleId : Int = 0
-//    var lat : Float = 0
-//    var lng : Double = 0
-//    var speed : Double = 0
-
-    var lat = ""
-    var lng = ""
-    var speed = ""
-    
-    
+    var vehicleId : Int = -1
+    var lat : String?
+    var lng : String?
+    var speed : String?
+    var status : String?
     var groups = [Int] ()
-    var status = ""
-    
-
-    
-
-    
+ 
     
     
     func addValue<T>(_ tagName: String, withValue value: T) {
@@ -50,18 +39,33 @@ class Vehicle : Hashable {
             
             
             if value is String {
+                                
+                let holdingString: String? =  (value as! String)
                 
-                lat = (value as? String)!
+                guard let myString = holdingString, !myString.isEmpty else {
+                    print("String is nil or empty.")
+                    return
+                }
+                
+                lat = holdingString
+
             }
             
-//            self.lat = value
-//            
+
         case JsonDocTags.LONG_TAG:
             
             
             if value is String {
                 
-                lng = (value as? String)!
+                let holdingString: String? =  (value as! String)
+                
+                guard let myString = holdingString, !myString.isEmpty else {
+                    print("String is nil or empty.")
+                    return
+                }
+                
+                lng = holdingString
+                
             }
   
         case JsonDocTags.SPEED_TAG:
@@ -69,7 +73,15 @@ class Vehicle : Hashable {
             
             if value is String {
                 
-                speed = (value as? String)!
+                let holdingString: String? =  (value as! String)
+                
+                guard let myString = holdingString, !myString.isEmpty else {
+                    print("String is nil or empty.")
+                    return
+                }
+                
+                speed = holdingString
+                
             }
             
             
@@ -80,8 +92,17 @@ class Vehicle : Hashable {
             
 
             if value is String {
+                
+                let holdingString: String? =  (value as! String)
+                
+                print("holdingString is... ", holdingString ?? "not string" )
+                
+                guard let myString = holdingString, !myString.isEmpty else {
+                    print("String is nil or empty.")
+                    return
+                }
 
-                addStringToGroupsArray(value: (value as? String)!)
+                addStringToGroupsArray(value: holdingString!)
                 
             }
             
@@ -90,7 +111,15 @@ class Vehicle : Hashable {
 
             if value is String {
                 
-                status = (value as? String)!
+                let holdingString: String? =  (value as! String)
+                
+                guard let myString = holdingString, !myString.isEmpty else {
+                    print("String is nil or empty.")
+                    return
+                }
+                
+                status = holdingString
+
             }
             
         default:
@@ -124,7 +153,7 @@ class Vehicle : Hashable {
     
     
     
-    //Functions for Hashale
+    //Functions for Hashale - no longer used
     
     static func == (lhs: Vehicle, rhs: Vehicle) -> Bool {
         return lhs.hashValue == rhs.hashValue

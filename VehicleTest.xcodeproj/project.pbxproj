@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0337766D1E50B5A900F079D4 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0337766C1E50B5A900F079D4 /* DataHandler.swift */; };
 		0337766F1E50B74900F079D4 /* VehiclesDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0337766E1E50B74900F079D4 /* VehiclesDataProtocol.swift */; };
+		033776711E5112F800F079D4 /* VehiclesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033776701E5112F800F079D4 /* VehiclesData.swift */; };
 		03F644E61E4DCA7C00683B5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F644E51E4DCA7C00683B5F /* AppDelegate.swift */; };
 		03F644EB1E4DCA7C00683B5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03F644E91E4DCA7C00683B5F /* Main.storyboard */; };
 		03F644EE1E4DCA7C00683B5F /* VehicleTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03F644EC1E4DCA7C00683B5F /* VehicleTest.xcdatamodeld */; };
@@ -16,7 +16,6 @@
 		03F644F31E4DCA7C00683B5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03F644F11E4DCA7C00683B5F /* LaunchScreen.storyboard */; };
 		03F644FE1E4DCA7C00683B5F /* VehicleTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F644FD1E4DCA7C00683B5F /* VehicleTestTests.swift */; };
 		03F645091E4DCA7C00683B5F /* VehicleTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F645081E4DCA7C00683B5F /* VehicleTestUITests.swift */; };
-		03F645171E4DCAE700683B5F /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F645161E4DCAE700683B5F /* File.swift */; };
 		03F645191E4DCAFF00683B5F /* JsonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F645181E4DCAFF00683B5F /* JsonHelper.swift */; };
 		03F645241E4DCD3200683B5F /* vehicles.json in Resources */ = {isa = PBXBuildFile; fileRef = 03F645231E4DCD3200683B5F /* vehicles.json */; };
 		03F645261E4DCD4A00683B5F /* vehicle_groups.json in Resources */ = {isa = PBXBuildFile; fileRef = 03F645251E4DCD4A00683B5F /* vehicle_groups.json */; };
@@ -43,8 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0337766C1E50B5A900F079D4 /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
 		0337766E1E50B74900F079D4 /* VehiclesDataProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclesDataProtocol.swift; sourceTree = "<group>"; };
+		033776701E5112F800F079D4 /* VehiclesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclesData.swift; sourceTree = "<group>"; };
 		03F644E21E4DCA7C00683B5F /* VehicleTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VehicleTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F644E51E4DCA7C00683B5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03F644EA1E4DCA7C00683B5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,7 +57,6 @@
 		03F645041E4DCA7C00683B5F /* VehicleTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VehicleTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F645081E4DCA7C00683B5F /* VehicleTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleTestUITests.swift; sourceTree = "<group>"; };
 		03F6450A1E4DCA7C00683B5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		03F645161E4DCAE700683B5F /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		03F645181E4DCAFF00683B5F /* JsonHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonHelper.swift; sourceTree = "<group>"; };
 		03F645231E4DCD3200683B5F /* vehicles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vehicles.json; sourceTree = "<group>"; };
 		03F645251E4DCD4A00683B5F /* vehicle_groups.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vehicle_groups.json; sourceTree = "<group>"; };
@@ -159,8 +157,8 @@
 		03F645291E4DDBA700683B5F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0337766C1E50B5A900F079D4 /* DataHandler.swift */,
 				0337766E1E50B74900F079D4 /* VehiclesDataProtocol.swift */,
+				033776701E5112F800F079D4 /* VehiclesData.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -169,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				03F645181E4DCAFF00683B5F /* JsonHelper.swift */,
-				03F645161E4DCAE700683B5F /* File.swift */,
 				03F6452A1E4DDCB100683B5F /* Vehicle.swift */,
 				03F6452E1E4E152800683B5F /* JsonDocTags.swift */,
 			);
@@ -324,8 +321,7 @@
 				0337766F1E50B74900F079D4 /* VehiclesDataProtocol.swift in Sources */,
 				03F6452F1E4E152800683B5F /* JsonDocTags.swift in Sources */,
 				03F644EE1E4DCA7C00683B5F /* VehicleTest.xcdatamodeld in Sources */,
-				03F645171E4DCAE700683B5F /* File.swift in Sources */,
-				0337766D1E50B5A900F079D4 /* DataHandler.swift in Sources */,
+				033776711E5112F800F079D4 /* VehiclesData.swift in Sources */,
 				03F645281E4DD71900683B5F /* MainViewController.swift in Sources */,
 				03F644E61E4DCA7C00683B5F /* AppDelegate.swift in Sources */,
 				03F645191E4DCAFF00683B5F /* JsonHelper.swift in Sources */,

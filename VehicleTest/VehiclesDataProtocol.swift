@@ -2,7 +2,6 @@
 //  VehiclesDataProtocol.swift
 //  VehicleTest
 //
-//  Created by TAE on 12/02/2017.
 //  Copyright © 2017 OriginalMyth. All rights reserved.
 //
 
@@ -15,7 +14,9 @@ protocol VehiclesDataProtocol {
     
     
     
+    //var mVehicles : Set<Vehicle> { get }
     
+    var vehiclesDict : [Int : Vehicle] { get set }
     
     
     
