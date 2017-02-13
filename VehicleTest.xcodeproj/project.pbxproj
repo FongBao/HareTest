@@ -113,7 +113,6 @@
 		03F644E41E4DCA7C00683B5F /* VehicleTest */ = {
 			isa = PBXGroup;
 			children = (
-				03F6452D1E4E146500683B5F /* Controllers */,
 				03F6452C1E4E143F00683B5F /* HelperFiles */,
 				03F645291E4DDBA700683B5F /* Model */,
 				03F6451C1E4DCC1E00683B5F /* JSONFiles */,
@@ -159,6 +158,7 @@
 			children = (
 				0337766E1E50B74900F079D4 /* VehiclesDataProtocol.swift */,
 				033776701E5112F800F079D4 /* VehiclesData.swift */,
+				03F6452D1E4E146500683B5F /* Controllers */,
 			);
 			name = Model;
 			sourceTree = "<group>";

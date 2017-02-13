@@ -8,13 +8,13 @@
 import Foundation
 
 
-class Vehicle : Hashable {
+class Vehicle {
     
     
     var vehicleId : Int = -1
-    var lat : String?
-    var lng : String?
-    var speed : String?
+    var lat : Double?
+    var lng : Double?
+    var speed : Double?
     var status : String?
     var groups = [Int] ()
  
@@ -47,7 +47,7 @@ class Vehicle : Hashable {
                     return
                 }
                 
-                lat = holdingString
+                lat = Double(holdingString!)
 
             }
             
@@ -64,7 +64,9 @@ class Vehicle : Hashable {
                     return
                 }
                 
-                lng = holdingString
+                lng = Double(holdingString!)
+                
+                //let morePrecisePI = Double("3.1415926536")
                 
             }
   
@@ -80,22 +82,16 @@ class Vehicle : Hashable {
                     return
                 }
                 
-                speed = holdingString
+                speed = Double(holdingString!)
                 
             }
             
             
         case JsonDocTags.VEHICLE_GROUP_TAG:
 
-            
-            print("in JsonDocTags.VEHICLE_GROUP_TAG")
-            
-
             if value is String {
                 
                 let holdingString: String? =  (value as! String)
-                
-                print("holdingString is... ", holdingString ?? "not string" )
                 
                 guard let myString = holdingString, !myString.isEmpty else {
                     print("String is nil or empty.")
@@ -143,9 +139,6 @@ class Vehicle : Hashable {
         let groupsStringArray = value.components(separatedBy: ",")
         
         for item in groupsStringArray {
-            
-            //print("item added to groupsStringArray is..... \(item)")
-            
             groups.append(Int(item.trimmingCharacters(in: .whitespaces))!)
         }
     
@@ -153,19 +146,48 @@ class Vehicle : Hashable {
     
     
     
-    //Functions for Hashale - no longer used
+    //maps class members to json
+    //func vehicleToJsonObject() -> String {
+    func vehicleToJsonObject() -> [String : AnyObject] {
+        
+       // var jsonString = ""
+        
+
+        var jsonObject = [String : AnyObject]()
+        var jsonObject2 = [String : AnyObject]()
+        
+        jsonObject2[JsonDocTags.LAT_TAG] = lat as AnyObject?
+        jsonObject2[JsonDocTags.LONG_TAG] = lng as AnyObject?
+        jsonObject2[JsonDocTags.SPEED_TAG] = speed as AnyObject?
+        jsonObject2[JsonDocTags.STATUS_TAG] = status as AnyObject?
+        jsonObject2[JsonDocTags.VEHICLE_GROUP_TAG] = groups as AnyObject?
+        
+        jsonObject[String(vehicleId)] = jsonObject2 as AnyObject?
+//        let jsonHelper = JsonHelper()
+ //
+//        do {
+//            
+//            jsonString = try jsonHelper.buildJSON(jsonObject as AnyObject)
+//            
+//        } catch let error {
+//            
+//            print(" error!!!!")
+//            print(error.localizedDescription)
+//            
+//        }
     
-    static func == (lhs: Vehicle, rhs: Vehicle) -> Bool {
-        return lhs.hashValue == rhs.hashValue
+        //return jsonString
+        return jsonObject
+        
     }
     
     
     
-    var hashValue: Int {
-        get {
-            return vehicleId
-        }
-    }
+    
+    
+    
+    
+
     
 
 

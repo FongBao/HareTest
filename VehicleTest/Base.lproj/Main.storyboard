@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,17 +22,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1Y-Pf-qhd">
-                                <rect key="frame" x="235" y="541" width="96" height="69"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1Y-Pf-qhd">
+                                <rect key="frame" x="42" y="20" width="295" height="69"/>
+                                <state key="normal" title="Get JSON"/>
                                 <connections>
                                     <action selector="parseJsonFile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CPY-oy-Em2"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZyP-TI-e12">
+                                <rect key="frame" x="26" y="105" width="325" height="527"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bhw-yp-l8v">
+                                        <rect key="frame" x="8" y="8" width="309" height="511"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NMD-3b-Kgk">
+                                                <rect key="frame" x="29" y="27" width="240" height="445"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="NMD-3b-Kgk" firstAttribute="top" secondItem="Bhw-yp-l8v" secondAttribute="top" id="6OE-hA-u36"/>
+                                            <constraint firstAttribute="trailing" secondItem="NMD-3b-Kgk" secondAttribute="trailing" id="Lgf-wm-oAl"/>
+                                            <constraint firstItem="NMD-3b-Kgk" firstAttribute="height" secondItem="Bhw-yp-l8v" secondAttribute="height" id="U5p-De-C3I"/>
+                                            <constraint firstItem="NMD-3b-Kgk" firstAttribute="width" secondItem="Bhw-yp-l8v" secondAttribute="width" id="aQH-0m-MfJ"/>
+                                            <constraint firstItem="NMD-3b-Kgk" firstAttribute="leading" secondItem="Bhw-yp-l8v" secondAttribute="leading" id="nK5-en-Xoq"/>
+                                            <constraint firstAttribute="bottom" secondItem="NMD-3b-Kgk" secondAttribute="bottom" id="ncm-3u-HYZ"/>
+                                        </constraints>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Bhw-yp-l8v" secondAttribute="bottom" id="F8u-an-xLJ"/>
+                                    <constraint firstItem="Bhw-yp-l8v" firstAttribute="top" secondItem="ZyP-TI-e12" secondAttribute="top" id="Qxz-4Q-v6x"/>
+                                    <constraint firstItem="Bhw-yp-l8v" firstAttribute="leading" secondItem="ZyP-TI-e12" secondAttribute="leading" id="XvZ-G6-bpW"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bhw-yp-l8v" secondAttribute="trailing" id="cNN-Ox-Ok5"/>
+                                    <constraint firstItem="Bhw-yp-l8v" firstAttribute="width" secondItem="ZyP-TI-e12" secondAttribute="width" id="eID-0l-yqn"/>
+                                    <constraint firstItem="Bhw-yp-l8v" firstAttribute="height" secondItem="ZyP-TI-e12" secondAttribute="height" id="nJk-BH-TU7"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="X1Y-Pf-qhd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="25" id="D8F-lI-jjg"/>
+                            <constraint firstItem="X1Y-Pf-qhd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="SS1-WI-4xa"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZyP-TI-e12" secondAttribute="bottom" constant="25" id="UGT-S9-KHl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="X1Y-Pf-qhd" secondAttribute="trailing" constant="25" id="eOv-ut-Ra4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZyP-TI-e12" secondAttribute="trailing" constant="10" id="hZY-VX-XMZ"/>
+                            <constraint firstItem="ZyP-TI-e12" firstAttribute="top" secondItem="X1Y-Pf-qhd" secondAttribute="bottom" constant="45" id="uqE-IX-ntP"/>
+                            <constraint firstItem="ZyP-TI-e12" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="vQK-wH-lNO"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mainTextView" destination="NMD-3b-Kgk" id="sNx-zf-h8W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
